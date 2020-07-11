@@ -21,3 +21,7 @@ y = sigmoid(x)
 plt.plot(x, y)
 plt.ylim(-0.1, 1,1)
 plt.show()
+
+def relu(x):
+  return np.maximum(0, x)
+
