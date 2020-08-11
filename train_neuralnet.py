@@ -6,9 +6,9 @@ from two_layer_net import TwoLayerNet
 
 train_loss_list = []
 
-iters_num = 100#10000
+iters_num = 10000
 train_size = x_train.shape[0]
-batch_size = 1000
+batch_size = 100
 learning_rate = 0.1
 
 train_acc_list = []
@@ -25,7 +25,7 @@ for i in range(iters_num):
     t_batch = t_train[batch_mask]
 
     # 勾配の計算
-    grad = network.numerical_gradient(x_batch, t_batch)
+    grad = network.gradient(x_batch, t_batch)
 
     # パラメータ更新
     for key in ('W1', 'b1', 'W2', 'b2'):
@@ -39,6 +39,6 @@ for i in range(iters_num):
         test_acc = network.accuracy(x_test, t_test)
         train_acc_list.append(train_acc)
         test_acc_list.append(test_acc)
-        print("train acc, test acc | " + str(train_acc) + ", ", + str(test_acc))
+        print(train_acc, test_acc)
 
 
